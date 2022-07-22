@@ -27,6 +27,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// Custom middleware to add the logged in user
+// to the locals object so that we can access
+// user within EVERY template we render without
+// having to pass user: req.user from the controller
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+// Middleware to protect routes
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
