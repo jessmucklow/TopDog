@@ -7,6 +7,11 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// Connect to our database (line of code must be AFTER the above - .env)
+require('./config/database');
+
+require('dotenv').config();
+
 var app = express();
 
 // view engine setup
