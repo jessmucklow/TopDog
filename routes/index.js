@@ -21,7 +21,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/pets',
     failureRedirect: '/'
   }
 ));
@@ -32,5 +32,6 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
   });
 });
+
 
 module.exports = router;
