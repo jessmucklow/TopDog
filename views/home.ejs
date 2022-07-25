@@ -1,8 +1,18 @@
 <%- include('./partials/header') %>
-  <body>
-    <h1><%= title %></h1>
-    <p></p>
-    <div id="">Home Page</div>
-  </body>
-</html>
-<%- include('./partials/footer') %>
+
+    <body>
+        <% pets.forEach(function(p) { %>
+            <tr>
+                <td>
+                    <%= p.petName %>
+                </td>
+                <td>
+                    <%= p.pet %>
+                </td>
+                <td><a href="/pets/show <%= p._id %>">DETAILS</a></td>
+            </tr>
+            <% }); %>
+    </body>
+
+    </html>
+    <%- include('./partials/footer') %>
