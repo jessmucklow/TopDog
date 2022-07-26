@@ -18,13 +18,14 @@ const rankSchema = new Schema({
 });
 
 const petSchema = new Schema({
-    title: String,
-    petName: String,
-    petImg: String,
-    ranks: [rankSchema]
-  }, {
-    timestamps: true
-  });
+  title: String,
+  petName: String,
+  petImg: String,
+  ranks: [rankSchema],
+  user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
+}, {
+  timestamps: true
+});
 
 
   module.exports = mongoose.model('Pet', petSchema);
