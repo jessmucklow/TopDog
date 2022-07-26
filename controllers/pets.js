@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function index(req, res) {
-    Pet.find({}, function (err, pets) {
+    Pet.find({}).sort('-createdAt').exec(function (err, pets) {
         res.render('home', { title: 'Top Dog', pets });
     });
 }
@@ -17,14 +17,13 @@ function newPet(req, res) {
 }
 
 function create(req, res) {
-    console.log('hi')
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-    }
-    var pet = new Pet(req.body);
-    pet.save(function (err) {
-        // one way to handle errors
-        if (err) return res.redirect('/pets/new');
-        res.redirect(`/home`);
+    const pet = new Pet(req.body);
+    // Assign the logged in user's id
+    pet.save(function(err) {
+      if (err) return res.redirect('/pets/new' /* or a path that displays a custom error */);
+      // Probably want to go to newly added book's show view
+    res.redirect('/pets')
     });
-}
+  }
+  
+

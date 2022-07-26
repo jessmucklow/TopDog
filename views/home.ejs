@@ -3,15 +3,36 @@
     <body>
         <h1>Home</h1>
         <% pets.forEach(function(p) { %>
+            <br>
             <tr>
                 <td>
                     <%= p.petName %>
                 </td>
+                <br>
                 <td>
-                    <%= p.pet %>
+                    <%= p.title %>
                 </td>
+                <br>
+                <td>
+                    <img src="<%= p.petImg %>" alt="">
+                </td>
+                <br>
                 <td><a href="/pets/show <%= p._id %>">DETAILS</a></td>
+                <br>
+                    <form id="add-review-form" method="POST"
+                      action="/ranks/<%= p._id %>">
+                      <label>Rank:</label>
+                      <select name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                      </select>
+                      <input type="submit" value="Rank Pet">
+                    </form>
             </tr>
+            <br>
             <% }); %>
     </body>
 
