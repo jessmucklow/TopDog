@@ -17,6 +17,15 @@ const rankSchema = new Schema({
   timestamps: true
 });
 
+const petSchema = new Schema({
+    title: String,
+    petName: String,
+    petImg: String,
+    ranks: [rankSchema]
+  }, {
+    timestamps: true
+  });
 
 
-  module.exports = mongoose.model('Rank', rankSchema);
+  module.exports = mongoose.model('Pet', petSchema);
+

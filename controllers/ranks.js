@@ -1,4 +1,4 @@
-const Pet = require('../models/ranks');
+const Rank = require('../models/pet');
 
 module.exports = {
 index,
