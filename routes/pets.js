@@ -6,5 +6,6 @@ console.log('made it to router')
 router.get('/', petsCtrl.index);
 router.get('/new', petsCtrl.new);
 router.post('/create', petsCtrl.create);
+router.get('/show/:id', petsCtrl.show);
 
 module.exports = router;

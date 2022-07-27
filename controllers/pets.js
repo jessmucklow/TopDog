@@ -3,7 +3,8 @@ const Pet = require('../models/pet');
 module.exports = {
     index,
     new: newPet,
-    create
+    create,
+    show
 };
 
 function index(req, res) {
@@ -18,11 +19,15 @@ function newPet(req, res) {
 
 function create(req, res) {
     const pet = new Pet(req.body);
-    // Assign the logged in user's id  <-- you already have this comment, but need the code below
     pet.user = req.user._id;
     pet.save(function(err) {
-      if (err) return res.redirect('/pets/new' /* or a path that displays a custom error */);
-      // Probably want to go to newly added book's show view  <-- update this comment
+      if (err) return res.redirect('/pets/new');
       res.redirect('/pets')
     });
   }
+
+function show(req, res) {
+    Pet.findById(req.params.id, function(err, pet){
+        res.render('pets/show', {title: 'Pet Details', pet });
+    })
+}

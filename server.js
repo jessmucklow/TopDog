@@ -13,6 +13,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var petsRouter = require('./routes/pets');
+var ranksRouter = require('./routes/ranks');
 
 var app = express();
 
@@ -45,7 +46,8 @@ app.use(function(req, res, next) {
 const isLoggedIn = require('./config/auth');
 
 app.use('/', indexRouter);
-app.use('/pets', petsRouter);
+app.use('/pets',isLoggedIn, petsRouter);
+app.use('/ranks',isLoggedIn, ranksRouter);
 
 
 
