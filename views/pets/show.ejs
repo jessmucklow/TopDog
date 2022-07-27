@@ -16,10 +16,10 @@
             </td>
             <br>
             <br>
-            <form id="add-review-form" method="POST"
-            action="/ranks/create">
+            <form id="add-rank-form" method="POST"
+            action="/ranks/<%= pet._id %>">
             <label>Rank:</label>
-            <select name="rating">
+            <select name="ranking">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -28,6 +28,44 @@
             </select>
             <input type="submit" value="Rank Pet">
         </form>
+        <% if (pet.ranks.length) { %>
+            <table>
+              <thead>
+              </thead>
+              <tbody>
+                <% let sum=0; %>
+                  <% pet.ranks.forEach(function(r) { %>
+                    <% sum +=r.ranks %>
+                      <tr>
+                        <!-- <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar" referrerpolicy="no-referrer"> -->
+                          <!-- <%= pet.userName %> -->
+                        </td>
+                        <td>
+                          <%= r.createdAt.toLocaleDateString() %>
+                        </td>
+                        <td>
+                          <%= r.ranks %>
+                        </td>
+                        <td>
+                          <% if ( user?._id.equals(r.user) ) { %>
+                            <form action="/ranks/<%= pet._id %>?_method=DELETE" method="POST">
+                              <button type="submit">X</button>
+                            </form>
+                            <% } %>
+                        </td>
+                      </tr>
+                      <% }); %>
+                        <tr>
+                          <td colspan="3"></td>
+                          <td>
+                            <%= (sum / pet.ranks.length).toFixed(2) %>
+                          </td>
+                        </tr>
+              </tbody>
+            </table>
+            <% } else { %>
+              <h5>No Reviews Yet</h5>
+              <% } %>
     </tr>
     <br>
     </body>

@@ -5,5 +5,5 @@ var ranksCtrl = require('../controllers/ranks');
 console.log('made it to router')
 
 router.get('/', ranksCtrl.index);
-router.post('/create', ranksCtrl.create);
+router.post('/:id', ranksCtrl.create);
 module.exports = router;
