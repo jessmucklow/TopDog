@@ -18,15 +18,19 @@
             <br>
             <form id="add-rank-form" method="POST"
             action="/ranks/<%= pet._id %>">
-            <label>Rank:</label>
-            <select name="ranking">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5" selected>5</option>
-            </select>
-            <input type="submit" value="Rank Pet">
+            <div class="rate">
+              <input type="radio" id="star5" name="ranking" value="5" />
+              <label for="star5" title="text">5 stars</label>
+              <input type="radio" id="star4" name="ranking" value="4" />
+              <label for="star4" title="text">4 stars</label>
+              <input type="radio" id="star3" name="ranking" value="3" />
+              <label for="star3" title="text">3 stars</label>
+              <input type="radio" id="star2" name="ranking" value="2" />
+              <label for="star2" title="text">2 stars</label>
+              <input type="radio" id="star1" name="ranking" value="1" />
+              <label for="star1" title="text">1 star</label>
+            </div>
+            <input type="submit" value="Rate!">
         </form>
         <% if (pet.ranks.length) { %>
             <table>
@@ -44,21 +48,28 @@
                           <%= r.createdAt.toLocaleDateString() %>
                         </td>
                         <td>
-                          <%= r.ranks %>
+                          <div>
+                            <%= r.ranking %> <%= r.ranking >= 2 ? "Stars" : "Star" %>
+                          </div>
                         </td>
                         <td>
                           <% if ( user?._id.equals(r.user) ) { %>
-                            <form action="/ranks/<%= pet._id %>?_method=DELETE" method="POST">
+                            <form action="/ranks/<%= r._id %>?_method=DELETE" method="post">
                               <button type="submit">X</button>
                             </form>
                             <% } %>
+                            <% if ( user?._id.equals(r.user) ) { %>
+                                <a href="/ranks/<%= r._id %>/edit">
+                                  <button type="submit">EDIT</button>
+                                </a>
+                              <% } %>
                         </td>
                       </tr>
                       <% }); %>
                         <tr>
                           <td colspan="3"></td>
                           <td>
-                            <%= (sum / pet.ranks.length).toFixed(2) %>
+                            <!-- <%= (sum / pet.ranks.length).toFixed(2) %> -->
                           </td>
                         </tr>
               </tbody>
