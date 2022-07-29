@@ -11,7 +11,7 @@
 # Technologies Used
 
  JaveScript, HTML, CSS, NodeJS & ExpressJS Framework
-MongoDB & MongooseJS ODM, and Google. 
+MongoDB & MongooseJS ODM, and Google.
 
 # Link 
 
