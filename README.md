@@ -21,6 +21,6 @@ MongoDB & MongooseJS ODM, and Google.
 
 - Render a pet's profile page.
 
-- Add the capability to edit and delete posts by user who created them.
+- Add the capability to edit and delete posts by the user who created them.
 
 - Limit users to only one rating per post, and cannot rate their own posts. 
