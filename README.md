@@ -4,13 +4,13 @@
  
 ![screenshot](https://i.gyazo.com/1d879a7d27b193c627fda1d17b103579.png)
 
-![screenshot](https://i.gyazo.com/1dc60ee2a1888f3158b6f39f8db53564.png)
+![screenshot](https://i.gyazo.com/1dc60ee2a1888f3158b6f39f8db53564.jpg)
 
-![screenshot](hhttps://i.gyazo.com/425ef8f487ac359fc2e576800d998bbc.png)
+![screenshot](https://i.gyazo.com/425ef8f487ac359fc2e576800d998bbc.png)
 
 # Technologies Used
 
- JaveScript, HTML, CSS, NodeJS & ExpressJS Framework,
+ JaveScript, HTML, CSS, NodeJS & ExpressJS Framework
 MongoDB & MongooseJS ODM, and Google. 
 
 # Link 
@@ -21,6 +21,6 @@ MongoDB & MongooseJS ODM, and Google.
 
 - Render a pet's profile page.
 
-- Add the capability to edit and delete posts by users.
+- Add the capability to edit and delete posts by user who created them.
 
 - Limit users to only one rating per post, and cannot rate their own posts. 
