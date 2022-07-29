@@ -8,6 +8,7 @@ a {
 }
 
 body {
+  font-family: 'Crimson Text', serif;
   margin: 0;
   height: 100vh;
   display: grid;
@@ -99,6 +100,7 @@ nav>a:hover {
   background-color: #424748;
 }
 
+
 h1 {
   z-index: 1;
   font-weight: bold;
@@ -112,7 +114,7 @@ h1 {
 
 .rate {
   float: left;
-  height: 46px;
+  height: 100px;
   padding: 0 10px;
 }
 
@@ -127,7 +129,7 @@ h1 {
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 70px;
   color: #ccc;
 }
 
@@ -208,6 +210,10 @@ h1 {
   color: #940cff;
   background-color: #FFFFFF;
   font-weight: bold;
+}
+
+#rate-button {
+  margin-top: 38px;
 }
 
 .ha-screen-reader {

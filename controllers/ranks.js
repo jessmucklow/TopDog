@@ -14,7 +14,7 @@ function edit(req, res) {
        let rank = pet.ranks.id(req.params.id)
        console.log(rank)
         if (err || !pet) return res.redirect('/pets');
-            res.render('pets/edit', {pet, rank, title: 'edit'});
+            res.render('pets/edit', {pet, rank, title: 'Edit Rating'});
       });
     }
   
