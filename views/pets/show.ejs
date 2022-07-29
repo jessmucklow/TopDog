@@ -49,21 +49,23 @@
                 </td>
                 <td>
                   <div id="home">
-                   <div id="rankings"> <%= r.ranking %>
-                    <%= r.ranking>= 2 ? "Stars" : "Star" %></div>
+                    <div id="rankings">
+                      <%= r.ranking %>
+                        <%= r.ranking>= 2 ? "Stars" : "Star" %>
+                    </div>
                     <%= r.createdAt.toLocaleDateString() %>
                   </div>
-                  
+
                 </td>
                 <td>
                   <div id="edit-delete">
-                    
+
                     <% if ( user?._id.equals(r.user) ) { %>
                       <form action="/ranks/<%= r._id %>?_method=DELETE" method="post">
                         <button type="submit" class="button">Delete</button>
                       </form>
                       <% } %>
-                        
+
                         <% if ( user?._id.equals(r.user) ) { %>
                           <a href="/ranks/<%= r._id %>/edit">
                             <button type="submit" class="button">I change my mind..</button>
@@ -76,7 +78,6 @@
                   </div>
                   <td colspan="3"></td>
                   <td>
-                    <!-- <%= (sum / pet.ranks.length).toFixed(2) %> -->
                   </td>
                 </tr>
       </tbody>

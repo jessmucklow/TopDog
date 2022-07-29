@@ -1,42 +1,42 @@
 <%- include('../partials/header') %>
-<div id="home">
-    <tr>
-        <td>
-            <div id="name">
-                <%= pet.petName %>
+    <div id="home">
+        <tr>
+            <td>
+                <div id="name">
+                    <%= pet.petName %>
+                </div>
+            </td>
+            <br>
+            <td>
+                <%= pet.title %>
+            </td>
+            <br>
+            <br>
+            <div id="date-created">
+                <%= pet.createdAt.toLocaleDateString() %>
             </div>
-        </td>
-        <br>
-        <td>
-            <%= pet.title %>
-        </td>
-        <br>
-        <br>
-        <div id="date-created">
-            <%= pet.createdAt.toLocaleDateString() %>
-          </div>
-        <td>
-            <img src="<%= pet.petImg %>" alt="" id="posts">
-        </td>
-    </tr>
+            <td>
+                <img src="<%= pet.petImg %>" alt="" id="posts">
+            </td>
+        </tr>
     </div>
     <br>
-        </form> 
+    </form>
 
-        <form id="add-rank-form" method="POST" action="/ranks/<%= pet._id %>">
-            <div class="rate">
-              <input type="radio" id="star5" name="ranking" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="ranking" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="ranking" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="ranking" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="ranking" value="1" />
-              <label for="star1" title="text">1 star</label>
-            </div>
-            <input type="submit" value="Update!" class="button" id="rate-button">
-          </form>
+    <form id="add-rank-form" method="POST" action="/ranks/<%= pet._id %>">
+        <div class="rate">
+            <input type="radio" id="star5" name="ranking" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="ranking" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="ranking" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="ranking" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="ranking" value="1" />
+            <label for="star1" title="text">1 star</label>
+        </div>
+        <input type="submit" value="Update!" class="button" id="rate-button">
+    </form>
     </body>
     <%- include('../partials/footer') %>

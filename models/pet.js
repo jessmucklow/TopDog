@@ -8,12 +8,11 @@ const rankSchema = new Schema({
     min: 1,
     max: 5,
     default: 5
-  }, 
-  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  },
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
   userName: String,
   userAvatar: String,
 }, {
-  // Automatic createdAt & updatedAt properties
   timestamps: true
 });
 
@@ -22,22 +21,22 @@ const petSchema = new Schema({
   petName: String,
   petImg: String,
   ranks: [rankSchema],
-  user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
+  user: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true,
   toObject: { virtuals: true },
   toJSON: { virtuals: true }
 });
 
-  petSchema.virtual('avgRank')
-  .get(function(){
+petSchema.virtual('avgRank')
+  .get(function () {
     let count = 0;
-    this.ranks.forEach(function(r){
-      count+=r.ranking
+    this.ranks.forEach(function (r) {
+      count += r.ranking
     });
     console.log(count)
-    return count/this.ranks.length;
+    return count / this.ranks.length;
   })
 
-  module.exports = mongoose.model('Pet', petSchema);
+module.exports = mongoose.model('Pet', petSchema);
 
