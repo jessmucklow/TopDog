@@ -1,7 +1,37 @@
 <%- include('../partials/header') %>
-
-    <body>
-        <form id="add-pet-form" action="/pets/create" method="POST">
+        <body>
+            <div class="page">
+                <form id="add-pet-form" action="/pets/create" method="POST">
+                    <div class="field field_v1">
+                        <label class="ha-screen-reader">Pet Name:</label>
+                        <input type="text" name="petName" id="first-name" class="field__input" placeholder="Kimber">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Pet Name</span>
+                        </span>
+                    </div>
+                    <div class="field field_v2">
+                        <label class="ha-screen-reader">Post Title:</label>
+                        <input type="text" name="title" id="last-name" class="field__input"
+                            placeholder="Silly rabbit, Trix are for kids!">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Post Title:</span>
+                        </span>
+                    </div>
+                    <div class="field field_v3">
+                        <label class="ha-screen-reader">Attach Photo Link Here:</label>
+                        <input type="text" name="petImg" id="email" class="field__input"
+                            placeholder="topdog-jc.herokuapp.com">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Attach Photo Link Here:</span>
+                        </span>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="submit" value="submit ⚡" class="button">
+                </form>
+            </div>
+            <form id="add-pet-form" action="/pets/create" method="POST">
             <label>Pet Name:</label>
             <input type="text" name="petName">
             <label>Title:</label>
@@ -10,5 +40,72 @@
             <input type="text" name="petImg">
             <input type="submit" value="Post!">
         </form>
-    </body>
-    <%- include('../partials/footer') %>
+        </body>
+        <container>
+            <div class="walking-paws">
+                <div class="paw-print-1">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-2">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-3">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-4">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-5">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-6">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-7">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+
+                <div class="paw-print-8">
+                    <div class="pad large"></div>
+                    <div class="pad small-1"></div>
+                    <div class="pad small-2"></div>
+                    <div class="pad small-3"></div>
+                    <div class="pad small-4"></div>
+                </div>
+        </container>
+
+        <%- include('../partials/footer') %>

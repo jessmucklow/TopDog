@@ -30,9 +30,13 @@ function edit(req, res) {
   }
   
 
-function index(req, res) {
+  function index(req, res) {
     Pet.find({}).sort('-createdAt').exec(function (err, pets) {
-        res.render('pets/ranks', { title: 'Top Dog', pets });
+        pets.sort(function(a, b){
+            return (a.avgRank < b.avgRank) ? 1: -1 ;
+          });
+        let topPet = pets[0];
+        res.render('pets/ranks', { title: 'Top Dog', topPet });
     });
 }
 

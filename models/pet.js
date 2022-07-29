@@ -24,9 +24,20 @@ const petSchema = new Schema({
   ranks: [rankSchema],
   user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true }
 });
 
+  petSchema.virtual('avgRank')
+  .get(function(){
+    let count = 0;
+    this.ranks.forEach(function(r){
+      count+=r.ranking
+    });
+    console.log(count)
+    return count/this.ranks.length;
+  })
 
   module.exports = mongoose.model('Pet', petSchema);
 

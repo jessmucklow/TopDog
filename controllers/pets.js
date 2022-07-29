@@ -20,7 +20,7 @@ function newPet(req, res) {
 function create(req, res) {
     const pet = new Pet(req.body);
     pet.user = req.user._id;
-    pet.save(function(err) {
+    pet.save(function(err, pet) {
       if (err) return res.redirect('/pets/new');
       res.redirect('/pets')
     });

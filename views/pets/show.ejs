@@ -1,83 +1,92 @@
 <%- include('../partials/header') %>
-
-    <body>
-        <br>
-        <tr>
-            <td>
-                <%= pet.petName %>
-            </td>
-            <br>
-            <td>
-                <%= pet.title %>
-            </td>
-            <br>
-            <td>
-                <img src="<%= pet.petImg %>" alt="" id="">
-            </td>
-            <br>
-            <br>
-            <form id="add-rank-form" method="POST"
-            action="/ranks/<%= pet._id %>">
-            <div class="rate">
-              <input type="radio" id="star5" name="ranking" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="ranking" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="ranking" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="ranking" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="ranking" value="1" />
-              <label for="star1" title="text">1 star</label>
-            </div>
-            <input type="submit" value="Rate!">
-        </form>
-        <% if (pet.ranks.length) { %>
-            <table>
-              <thead>
-              </thead>
-              <tbody>
-                <% let sum=0; %>
-                  <% pet.ranks.forEach(function(r) { %>
-                    <% sum +=r.ranks %>
-                      <tr>
-                        <!-- <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar" referrerpolicy="no-referrer"> -->
-                          <!-- <%= pet.userName %> -->
-                        </td>
-                        <td>
-                          <%= r.createdAt.toLocaleDateString() %>
-                        </td>
-                        <td>
-                          <div>
-                            <%= r.ranking %> <%= r.ranking >= 2 ? "Stars" : "Star" %>
-                          </div>
-                        </td>
-                        <td>
-                          <% if ( user?._id.equals(r.user) ) { %>
-                            <form action="/ranks/<%= r._id %>?_method=DELETE" method="post">
-                              <button type="submit">X</button>
-                            </form>
-                            <% } %>
-                            <% if ( user?._id.equals(r.user) ) { %>
-                                <a href="/ranks/<%= r._id %>/edit">
-                                  <button type="submit">EDIT</button>
-                                </a>
-                              <% } %>
-                        </td>
-                      </tr>
-                      <% }); %>
-                        <tr>
-                          <td colspan="3"></td>
-                          <td>
-                            <!-- <%= (sum / pet.ranks.length).toFixed(2) %> -->
-                          </td>
-                        </tr>
-              </tbody>
-            </table>
-            <% } else { %>
-              <h5>No Reviews Yet</h5>
-              <% } %>
+  <div id="home">
+    <tr>
+      <td>
+        <div id="name">
+          <%= pet.petName %>
+        </div>
+      </td>
+      <br>
+      <td>
+        <%= pet.title %>
+      </td>
+      <br>
+      <br>
+      <div id="date-created">
+        <%= pet.createdAt.toLocaleDateString() %>
+      </div>
+      <td>
+        <img src="<%= pet.petImg %>" alt="" id="posts">
+      </td>
     </tr>
-    <br>
-    </body>
-    <%- include('../partials/footer') %>
+  </div>
+  <br>
+
+  <form id="add-rank-form" method="POST" action="/ranks/<%= pet._id %>">
+    <div class="rate">
+      <input type="radio" id="star5" name="ranking" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" name="ranking" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" name="ranking" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" name="ranking" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" name="ranking" value="1" />
+      <label for="star1" title="text">1 star</label>
+    </div>
+    <input type="submit" value="Rate!" class="button">
+  </form>
+  <% if (pet.ranks.length) { %>
+    <table>
+      <thead>
+      </thead>
+      <tbody>
+        <% let sum=0; %>
+          <% pet.ranks.forEach(function(r) { %>
+            <% sum +=r.ranks %>
+              <tr>
+                </td>
+                <td>
+                  <div id="home">
+                    <%= r.createdAt.toLocaleDateString() %>
+                </td>
+                <br>
+                <td>
+                  <%= r.ranking %>
+                    <%= r.ranking>= 2 ? "Stars" : "Star" %>
+                      </div>
+                </td>
+                <td>
+                  <div id="edit-delete">
+                    <br>
+                    <% if ( user?._id.equals(r.user) ) { %>
+                      <form action="/ranks/<%= r._id %>?_method=DELETE" method="post">
+                        <button type="submit" class="button">Delete</button>
+                      </form>
+                      <% } %>
+                        <br>
+                        <% if ( user?._id.equals(r.user) ) { %>
+                          <a href="/ranks/<%= r._id %>/edit">
+                            <button type="submit" class="button">I change my mind..</button>
+                          </a>
+                          <% } %>
+                </td>
+              </tr>
+              <% }); %>
+                <tr>
+                  </div>
+                  <td colspan="3"></td>
+                  <td>
+                    <!-- <%= (sum / pet.ranks.length).toFixed(2) %> -->
+                  </td>
+                </tr>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h5>No Reviews Yet</h5>
+      <% } %>
+        </tr>
+        <br>
+        </body>
+        <%- include('../partials/footer') %>

@@ -1,21 +1,26 @@
 <%- include('../partials/header') %>
-
-    <body>
-        <br>
-        <tr>
-            <td>
+<div id="home">
+    <tr>
+        <td>
+            <div id="name">
                 <%= pet.petName %>
-            </td>
-            <br>
-            <td>
-                <%= pet.title %>
-            </td>
-            <br>
-            <td>
-                <img src="<%= pet.petImg %>" alt="" id="">
-            </td>
-            <br>
-            <br>
+            </div>
+        </td>
+        <br>
+        <td>
+            <%= pet.title %>
+        </td>
+        <br>
+        <br>
+        <div id="date-created">
+            <%= pet.createdAt.toLocaleDateString() %>
+          </div>
+        <td>
+            <img src="<%= pet.petImg %>" alt="" id="posts">
+        </td>
+    </tr>
+    </div>
+    <br>
         </form> 
         <form action="/ranks/<%= rank._id%>?_method=PUT" method="POST">
             <div class="rate">
@@ -30,6 +35,7 @@
                 <input type="radio" id="star1" name="ranking" value="1" />
                 <label for="star1" title="text">1 star</label>
               </div>
+              <br>
               <input type="submit" value="Update!">
         </form>
     </body>

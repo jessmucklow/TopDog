@@ -1,39 +1,30 @@
 <%- include('../partials/header') %>
+    <div id="ranks">
 
-    <body>
-            <% pets.forEach(function(p) { %>
-                <br>
+        <body>
+            <div id="home">
                 <tr>
                     <td>
-                        <%= p.petName %>
+                        <div id="name">
+                            <%= topPet.petName %> is today's Top Dog!
+                        </div>
+                        <div id="topdog-star"> 🏅</div>
                     </td>
                     <br>
                     <td>
-                        <%= p.title %>
+                        <div> Average of <%= topPet.avgRank %> stars </div>
                     </td>
                     <br>
                     <td>
-                        <img src="<%= p.petImg %>" alt="" id="posts">
+                        <img src="<%= topPet.petImg %>" alt="">
                     </td>
                     <br>
-                    <td><a href="/pets/show <%= p._id %>">DETAILS</a></td>
+                    <td><a href="/pets/show/<%= topPet._id %>" id="details">View and Rate</a></td>
                     <br>
-                    <form id="add-review-form" method="POST"
-                    action="/ranks/<%= p._id %>">
-                    <label>Rank:</label>
-                    <select name="rating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5" selected>5</option>
-                    </select>
-                    <input type="submit" value="Rank Pet">
-                </form>
-            </tr>
-            <br>
-            <% }); %>
+                </tr>
+            </div>
         </body>
-        
+
+
         </html>
         <%- include('../partials/footer') %>

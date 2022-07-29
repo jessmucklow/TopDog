@@ -1,27 +1,34 @@
 <%- include('./partials/header') %>
 
-    <body>
-            <% pets.forEach(function(p) { %>
-                <br>
-                <tr>
-                    <td>
-                        <%= p.petName %>
-                    </td>
+<body>
+    <% pets.forEach(function(p) { %>
+        <div id="home">
+                    <tr>
+                        <td>
+                            <div id="name">
+                                <%= p.petName %>
+                            </div>
+                        </td>
+                        <br>
+                        <td>
+                            <%= p.title %>
+                        </td>
+                        <br>
+                        <br>
+                        <div id="date-created">
+                            <%= p.createdAt.toLocaleDateString() %>
+                          </div>
+                        <td>
+                            <img src="<%= p.petImg %>" alt="" id="posts">
+                        </td>
+                        <br>
+                        <td><a href="/pets/show/<%= p._id %>" id="details">View and Rate</a></td>
+                        <br>
+                    </tr>
+                    </div>
                     <br>
-                    <td>
-                        <%= p.title %>
-                    </td>
-                    <br>
-                    <td>
-                        <img src="<%= p.petImg %>" alt="" id="posts">
-                    </td>
-                    <br>
-                    <td><a href="/pets/show/<%= p._id %>">DETAILS</a></td>
-                    <br>
-            </tr>
-            <br>
-            <% }); %>
+                    <% }); %>
         </body>
-        
+
         </html>
         <%- include('./partials/footer') %>
