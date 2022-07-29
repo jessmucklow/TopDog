@@ -23,7 +23,7 @@
     <br>
     </form>
 
-    <form id="add-rank-form" method="POST" action="/ranks/<%= pet._id %>">
+    <form id="add-rank-form" method="POST" action="/ranks/<%= rank._id%>?_method=PUT">
         <div class="rate">
             <input type="radio" id="star5" name="ranking" value="5" />
             <label for="star5" title="text">5 stars</label>
